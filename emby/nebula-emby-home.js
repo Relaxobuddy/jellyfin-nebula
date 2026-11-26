@@ -77,34 +77,67 @@
   function esc(s) { return String(s || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function icono(n) { return '<i class="md-icon nbHero-ico">' + n + '</i>'; }
 
-  function construir(items, c) {
+    function construir(items, c) {
     var sid = api().serverId();
     var el = document.createElement('section');
     el.className = 'nbHero nbHero--emby';
     el.innerHTML =
       '<div class="nbHero-slides">' + items.map(function (i, n) {
-        var meta = [i.ProductionYear, i.Type === 'Series' ? (i.ChildCount ? i.ChildCount + (i.ChildCount === 1 ? ' temporada' : ' temporadas') : 'Serie') : dur(i.RunTimeTicks), i.OfficialRating]
-          .filter(Boolean).map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('');
-        if (c.rating && i.CommunityRating) meta += '<span class="nbHero-star">★ ' + i.CommunityRating.toFixed(1) + '</span>';
-        var gen = (c.genres ? i.Genres || [] : []).slice(0, 3).map(function (g) { return '<span class="nbHero-chip">' + esc(g) + '</span>'; }).join('');
+        var meta = [
+          i.ProductionYear,
+          i.Type === 'Series'
+            ? (i.ChildCount
+                ? i.ChildCount + (i.ChildCount === 1 ? ' Staffel' : ' Staffeln')
+                : 'Serie')
+            : dur(i.RunTimeTicks),
+          i.OfficialRating
+        ]
+          .filter(Boolean)
+          .map(function (x) { return '<span>' + esc(x) + '</span>'; })
+          .join('');
+
+        if (c.rating && i.CommunityRating) {
+          meta += '<span class="nbHero-star">★ ' + i.CommunityRating.toFixed(1) + '</span>';
+        }
+
+        var gen = (c.genres ? i.Genres || [] : [])
+          .slice(0, 3)
+          .map(function (g) { return '<span class="nbHero-chip">' + esc(g) + '</span>'; })
+          .join('');
+
         var url = '#!/item?id=' + i.Id + '&serverId=' + sid;
+
         return '<article class="nbHero-slide' + (n === 0 ? ' is-active' : '') + '" data-i="' + n + '">' +
           '<div class="nbHero-bg" style="background-image:url(\'' + img(i.Id, 'Backdrop', '/0') + '\')"></div>' +
           '<div class="nbHero-shade"></div>' +
           '<div class="nbHero-body">' +
-            (i.ImageTags && i.ImageTags.Logo ? '<img class="nbHero-logo" alt="' + esc(i.Name) + '" src="' + img(i.Id, 'Logo') + '">' : '<h2 class="nbHero-title">' + esc(i.Name) + '</h2>') +
+            (i.ImageTags && i.ImageTags.Logo
+              ? '<img class="nbHero-logo" alt="' + esc(i.Name) + '" src="' + img(i.Id, 'Logo') + '">'
+              : '<h2 class="nbHero-title">' + esc(i.Name) + '</h2>') +
             '<div class="nbHero-meta">' + meta + '</div>' +
             '<div class="nbHero-genres">' + gen + '</div>' +
             (c.overview ? '<p class="nbHero-overview">' + esc(i.Overview) + '</p>' : '') +
             (!c.buttons ? '' : '<div class="nbHero-actions">' +
-              '<a class="nbHero-btn nbHero-btn--main" data-play="' + i.Id + '" href="' + url + '">' + icono('play_arrow') + 'Ver ahora</a>' +
-              '<a class="nbHero-btn" href="' + url + '">' + icono('info') + 'Más info</a>' +
+              '<a class="nbHero-btn nbHero-btn--main" data-play="' + i.Id + '" href="' + url + '">' +
+                icono('play_arrow') + 'Jetzt abspielen</a>' +
+              '<a class="nbHero-btn" href="' + url + '">' +
+                icono('info') + 'Mehr Infos</a>' +
             '</div>') +
           '</div></article>';
       }).join('') + '</div>' +
-      '<button class="nbHero-nav nbHero-prev" aria-label="Anterior">' + icono('chevron_left') + '</button>' +
-      '<button class="nbHero-nav nbHero-next" aria-label="Siguiente">' + icono('chevron_right') + '</button>' +
-      '<div class="nbHero-dots">' + items.map(function (_, n) { return '<button class="nbHero-dot' + (n === 0 ? ' is-active' : '') + '" data-i="' + n + '" aria-label="Ir a ' + (n + 1) + '"><i></i></button>'; }).join('') + '</div>';
+      '<button class="nbHero-nav nbHero-prev" aria-label="Vorheriger Titel">' +
+        icono('chevron_left') +
+      '</button>' +
+      '<button class="nbHero-nav nbHero-next" aria-label="Nächster Titel">' +
+        icono('chevron_right') +
+      '</button>' +
+      '<div class="nbHero-dots">' +
+        items.map(function (_, n) {
+          return '<button class="nbHero-dot' + (n === 0 ? ' is-active' : '') +
+            '" data-i="' + n + '" aria-label="Zu Folie ' + (n + 1) +
+            ' wechseln"><i></i></button>';
+        }).join('') +
+      '</div>';
 
     var actual = 0, timer = null, slides = el.querySelectorAll('.nbHero-slide'), dots = el.querySelectorAll('.nbHero-dot');
     function ir(n) {
