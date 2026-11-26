@@ -1,14 +1,14 @@
 #!/bin/bash
 # Nebula — instalador del carrusel para Jellyfin y Emby. Un solo comando en cualquier sistema:
 #
-#   curl -fsSL https://raw.githubusercontent.com/nemesbak/jellyfin-nebula/main/install/nebula.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/Relaxobuddy/jellyfin-nebula/main/install/nebula.sh | bash
 #
 # Busca solo todos los Jellyfin y Emby del equipo:
 #   · en Docker (Unraid, Docker, Compose, Portainer, Synology, Docker dentro de un LXC…): crea un contenedor
 #     pequeñito «nebula» que pone el carrusel y lo vuelve a poner tras cada actualización y cada reinicio.
 #   · instalados directamente (LXC de Proxmox, Debian, Ubuntu…): lo pone y deja una tarea cada 10 min.
 #
-# Quitarlo:   curl -fsSL https://raw.githubusercontent.com/nemesbak/jellyfin-nebula/main/install/nebula.sh | bash -s -- --uninstall
+# Quitarlo:   curl -fsSL https://raw.githubusercontent.com/Relaxobuddy/jellyfin-nebula/main/install/nebula.sh | bash -s -- --uninstall
 # Opcional:   JELLYFIN_API_KEY=… / EMBY_API_KEY=…  delante de «bash» para que ponga también el tema él solo.
 set -u
 REPO="https://raw.githubusercontent.com/Relaxobuddy/jellyfin-nebula/main"
@@ -86,4 +86,4 @@ fi
 
 echo
 echo "🎉 ¡Listo! Abre Jellyfin/Emby y recarga con Ctrl+F5 para ver el carrusel."
-echo "   ¿Aún no tienes el tema? Mira «Instalación del tema» en https://github.com/nemesbak/jellyfin-nebula"
+echo "   ¿Aún no tienes el tema? Mira «Instalación del tema» en https://github.com/Relaxobuddy/jellyfin-nebula"
