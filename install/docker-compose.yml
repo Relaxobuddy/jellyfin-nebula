@@ -12,4 +12,4 @@ services:
       - JELLYFIN_API_KEY=   # opcional: clave de API de Jellyfin → pone también el tema en «CSS personalizado»
       - EMBY_API_KEY=       # opcional: lo mismo para Emby
       - NEBULA_OPTIONS=     # opcional (Jellyfin): p. ej. cabecera-minima,acento-coral
-    entrypoint: ["sh", "-c", "apk add -q --no-cache bash curl && curl -fsSL https://raw.githubusercontent.com/nemesbak/jellyfin-nebula/main/install/inject-docker.sh | bash -s -- auto --watch"]
+    entrypoint: ["sh", "-c", "apk add -q --no-cache bash curl && curl -fsSL https://raw.githubusercontent.com/Relaxobuddy/jellyfin-nebula/main/install/inject-docker.sh | bash -s -- auto --watch"]
