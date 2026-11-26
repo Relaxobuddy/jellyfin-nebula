@@ -58,7 +58,7 @@ Glass effect · violet → cyan gradient · smooth animations · featured carous
 **3.** In the **"Custom CSS code"** box, paste this line:
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/nebula.css');
+@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/nebula.css');
 ```
 
 **4.** Click **Save** at the bottom.
@@ -84,7 +84,7 @@ Swap the violet → cyan for another color. Use **only one** of these lines:
 ![Accent colors](screenshots/opcion-acentos.png)
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/acento-coral.css');
+@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/acento-coral.css');
 ```
 
 Replace `acento-coral` with the one you want: `acento-coral` (coral) · `acento-esmeralda` (emerald) · `acento-oceano` (ocean) · `acento-rosa` (pink) · `acento-oro` (gold) · `acento-blanco` (white).
@@ -111,10 +111,10 @@ Jellyfin 12 puts your libraries in the top bar. If you prefer a cleaner bar:
 
 | I want… | Paste this line |
 |---|---|
-| A **minimal** bar (just logo, search and user) | `@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/cabecera-minima.css');` |
-| Hide only the **libraries** | `@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/ocultar-bibliotecas-cabecera.css');` |
-| Hide only **Favorites** | `@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/ocultar-favoritos-cabecera.css');` |
-| Hide only the **"More"** menu | `@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/ocultar-menu-mas.css');` |
+| A **minimal** bar (just logo, search and user) | `@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/cabecera-minima.css');` |
+| Hide only the **libraries** | `@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/ocultar-bibliotecas-cabecera.css');` |
+| Hide only **Favorites** | `@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/ocultar-favoritos-cabecera.css');` |
+| Hide only the **"More"** menu | `@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/ocultar-menu-mas.css');` |
 
 > You don't lose anything: libraries are still under "My Media" on the home page and in the ☰ menu.
 
@@ -125,7 +125,7 @@ By default the item page shows the movie's **logo**. If you prefer the written n
 ![Logo or text title](screenshots/opcion-titulo.jpg)
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/titulo-en-texto.css');
+@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/titulo-en-texto.css');
 ```
 
 ### 🃏 Centered card text
@@ -135,7 +135,7 @@ Nebula left-aligns the title and year. To center them like stock Jellyfin:
 ![Card text](screenshots/opcion-tarjetas.jpg)
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/tarjetas-texto-centrado.css');
+@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/tarjetas-texto-centrado.css');
 ```
 
 ### 🐢 No animations
@@ -143,7 +143,7 @@ Nebula left-aligns the title and year. To center them like stock Jellyfin:
 For slow devices, TVs, or if you just don't like the effects. Everything appears instantly:
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/sin-animaciones.css');
+@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/sin-animaciones.css');
 ```
 
 ### 📋 Full example
@@ -151,9 +151,9 @@ For slow devices, TVs, or if you just don't like the effects. Everything appears
 This is what the box would look like with the theme + coral accent + minimal bar:
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/nebula.css');
-@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/acento-coral.css');
-@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/cabecera-minima.css');
+@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/nebula.css');
+@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/acento-coral.css');
+@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/cabecera-minima.css');
 ```
 
 > ⚠️ `@import` lines must go **at the very top** of the box, before any other CSS you have.
@@ -178,7 +178,7 @@ Using **Emby**? Nebula is also available for Emby 4.9 / 4.10, with the same look
 **1. The theme (1 minute):** in Emby click the gear **⚙ (Manage Emby Server) → Dashboard → General**, and in **"Custom CSS"** paste:
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/emby/nebula-emby.css');
+@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/emby/nebula-emby.css');
 ```
 
 Save and reload with **Ctrl + F5**.
@@ -238,7 +238,7 @@ The carousel is the **big image on the home page** that rotates on its own: rece
 Open a **terminal on the machine where Jellyfin or Emby runs**, paste this and press Enter:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/nemesbak/jellyfin-nebula/main/install/nebula.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Relaxobuddy/jellyfin-nebula/main/install/nebula.sh | bash
 ```
 
 Reload Jellyfin/Emby with **Ctrl + F5**. That's it! 🎉
@@ -280,7 +280,7 @@ The installer does everything by itself:
        restart: unless-stopped
        volumes:
          - /var/run/docker.sock:/var/run/docker.sock
-       entrypoint: ["sh", "-c", "apk add -q --no-cache bash curl && curl -fsSL https://raw.githubusercontent.com/nemesbak/jellyfin-nebula/main/install/inject-docker.sh | bash -s -- auto --watch"]
+       entrypoint: ["sh", "-c", "apk add -q --no-cache bash curl && curl -fsSL https://raw.githubusercontent.com/Relaxobuddy/jellyfin-nebula/main/install/inject-docker.sh | bash -s -- auto --watch"]
    ```
 
    > ⚠️ Indentation matters: `nebula:` must be **aligned** with `jellyfin:` (or your other apps' names).
@@ -305,7 +305,7 @@ The installer does everything by itself:
        restart: unless-stopped
        volumes:
          - /var/run/docker.sock:/var/run/docker.sock
-       entrypoint: ["sh", "-c", "apk add -q --no-cache bash curl && curl -fsSL https://raw.githubusercontent.com/nemesbak/jellyfin-nebula/main/install/inject-docker.sh | bash -s -- auto --watch"]
+       entrypoint: ["sh", "-c", "apk add -q --no-cache bash curl && curl -fsSL https://raw.githubusercontent.com/Relaxobuddy/jellyfin-nebula/main/install/inject-docker.sh | bash -s -- auto --watch"]
    ```
 
 4. At the bottom, click **Deploy the stack**.
@@ -339,7 +339,7 @@ With your API key, the installer also pastes the theme line into "Custom CSS" (o
 1. Create a key: Jellyfin → *Dashboard → API Keys → ＋* · Emby → *Dashboard → API Keys → New*.
 2. Paste the command like this, with your key (only for the server you have):
    ```bash
-   curl -fsSL https://raw.githubusercontent.com/nemesbak/jellyfin-nebula/main/install/nebula.sh | JELLYFIN_API_KEY=your_key EMBY_API_KEY=your_key bash
+   curl -fsSL https://raw.githubusercontent.com/Relaxobuddy/jellyfin-nebula/main/install/nebula.sh | JELLYFIN_API_KEY=your_key EMBY_API_KEY=your_key bash
    ```
 3. Optional, Jellyfin only: add `NEBULA_OPTIONS=acento-coral,cabecera-minima` before `bash`.
 </details>
@@ -409,7 +409,7 @@ Configured from the **same "Custom CSS code" box**, below the theme lines. Only 
 Paste this in the same terminal where you installed it:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/nemesbak/jellyfin-nebula/main/install/nebula.sh | bash -s -- --uninstall
+curl -fsSL https://raw.githubusercontent.com/Relaxobuddy/jellyfin-nebula/main/install/nebula.sh | bash -s -- --uninstall
 ```
 
 It removes the carousel from all your Jellyfin/Emby servers, plus the container or task that was watching it. The theme (CSS) is left untouched. If you installed it with **Compose**, also delete the `nebula` service from your file. If you used the plugin, delete the script there.
