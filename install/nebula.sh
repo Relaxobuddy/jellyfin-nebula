@@ -11,7 +11,7 @@
 # Quitarlo:   curl -fsSL https://raw.githubusercontent.com/nemesbak/jellyfin-nebula/main/install/nebula.sh | bash -s -- --uninstall
 # Opcional:   JELLYFIN_API_KEY=… / EMBY_API_KEY=…  delante de «bash» para que ponga también el tema él solo.
 set -u
-REPO="https://raw.githubusercontent.com/nemesbak/jellyfin-nebula/main"
+REPO="https://raw.githubusercontent.com/Relaxobuddy/jellyfin-nebula/main"
 INYECTOR="${NEBULA_INYECTOR:-$REPO/install/inject-docker.sh}"
 MODO="${1:-}"
 
