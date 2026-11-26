@@ -202,7 +202,7 @@
           ' wechseln"><i></i></button>';
       }).join('') +
       '</div>';
-}
+
 
     var actual = 0, timer = null, slides = el.querySelectorAll('.nbHero-slide'), dots = el.querySelectorAll('.nbHero-dot');
     function ir(n) {
