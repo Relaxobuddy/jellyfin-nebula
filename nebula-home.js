@@ -90,28 +90,119 @@
     el.className = 'nbHero';
     el.innerHTML =
       '<div class="nbHero-slides">' + items.map(function (i, n) {
-        var meta = [i.ProductionYear, i.Type === 'Series' ? (i.ChildCount ? i.ChildCount + (i.ChildCount === 1 ? ' Staffel' : ' Staffel') : 'Serie') : dur(i.RunTimeTicks), i.OfficialRating]
-          .filter(Boolean).map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('');
-        if (c.rating && i.CommunityRating) meta += '<span class="nbHero-star">★ ' + i.CommunityRating.toFixed(1) + '</span>';
-        var gen = (c.genres ? i.Genres || [] : []).slice(0, 3).map(function (g) { return '<span class="nbHero-chip">' + esc(g) + '</span>'; }).join('');
+
+        var rating = i.OfficialRating;
+
+        if (rating) {
+          rating = rating
+            .replace('ES-7', 'FSK-6')
+            .replace('ES-12', 'FSK-12')
+            .replace('ES-16', 'FSK-16')
+            .replace('ES-18', 'FSK-18');
+        }
+
+        var meta = [
+          i.ProductionYear,
+          i.Type === 'Series'
+            ? (i.ChildCount
+                ? i.ChildCount + (i.ChildCount === 1 ? ' Staffel' : ' Staffeln')
+                : 'Serie')
+            : dur(i.RunTimeTicks),
+          rating
+        ]
+          .filter(Boolean)
+          .map(function (x) {
+            return '<span>' + esc(x) + '</span>';
+          })
+          .join('');
+
+        if (c.rating && i.CommunityRating) {
+          meta += '<span class="nbHero-star">★ ' +
+            i.CommunityRating.toFixed(1) +
+            '</span>';
+        }
+
+        var gen = (c.genres ? i.Genres || [] : [])
+          .slice(0, 3)
+          .map(function (g) {
+            return '<span class="nbHero-chip">' + esc(g) + '</span>';
+          })
+          .join('');
+
         var url = '#/details?id=' + i.Id + '&serverId=' + sid;
-        return '<article class="nbHero-slide' + (n === 0 ? ' is-active' : '') + '" data-i="' + n + '">' +
-          '<div class="nbHero-bg" style="background-image:url(\'' + img(i.Id, 'Backdrop', '/0') + '\')"></div>' +
+
+        return '<article class="nbHero-slide' +
+          (n === 0 ? ' is-active' : '') +
+          '" data-i="' + n + '">' +
+
+          '<div class="nbHero-bg" style="background-image:url(\'' +
+          img(i.Id, 'Backdrop', '/0') +
+          '\')"></div>' +
+
           '<div class="nbHero-shade"></div>' +
+
           '<div class="nbHero-body">' +
-            (i.ImageTags && i.ImageTags.Logo ? '<img class="nbHero-logo" alt="' + esc(i.Name) + '" src="' + img(i.Id, 'Logo') + '">' : '<h2 class="nbHero-title">' + esc(i.Name) + '</h2>') +
-            '<div class="nbHero-meta">' + meta + '</div>' +
-            '<div class="nbHero-genres">' + gen + '</div>' +
-            (c.overview ? '<p class="nbHero-overview">' + esc(i.Overview) + '</p>' : '') +
-            (!c.buttons ? '' : '<div class="nbHero-actions">' +
-              '<a class="nbHero-btn nbHero-btn--main" data-play="' + i.Id + '" href="' + url + '"><span class="material-icons">play_arrow</span>Play</a>' +
-              '<a class="nbHero-btn" href="' + url + '"><span class="material-icons">info_outline</span>Infos</a>' +
-            '</div>') +
+
+          (i.ImageTags && i.ImageTags.Logo
+            ? '<img class="nbHero-logo" alt="' +
+              esc(i.Name) +
+              '" src="' +
+              img(i.Id, 'Logo') +
+              '">'
+            : '<h2 class="nbHero-title">' +
+              esc(i.Name) +
+              '</h2>') +
+
+          '<div class="nbHero-meta">' + meta + '</div>' +
+
+          '<div class="nbHero-genres">' + gen + '</div>' +
+
+          (c.overview
+            ? '<p class="nbHero-overview">' +
+              esc(i.Overview) +
+              '</p>'
+            : '') +
+
+          (!c.buttons
+            ? ''
+            : '<div class="nbHero-actions">' +
+                '<a class="nbHero-btn nbHero-btn--main" data-play="' +
+                i.Id +
+                '" href="' +
+                url +
+                '"><span class="material-icons">play_arrow</span>Abspielen</a>' +
+
+                '<a class="nbHero-btn" href="' +
+                url +
+                '"><span class="material-icons">info_outline</span>Mehr Infos</a>' +
+              '</div>') +
+
           '</div></article>';
-      }).join('') + '</div>' +
-      '<button class="nbHero-nav nbHero-prev" aria-label="Anterior"><span class="material-icons">chevron_left</span></button>' +
-      '<button class="nbHero-nav nbHero-next" aria-label="Siguiente"><span class="material-icons">chevron_right</span></button>' +
-      '<div class="nbHero-dots">' + items.map(function (_, n) { return '<button class="nbHero-dot' + (n === 0 ? ' is-active' : '') + '" data-i="' + n + '" aria-label="Ir a ' + (n + 1) + '"><i></i></button>'; }).join('') + '</div>';
+
+      }).join('') +
+
+      '</div>' +
+
+      '<button class="nbHero-nav nbHero-prev" aria-label="Vorheriger Titel">' +
+      '<span class="material-icons">chevron_left</span>' +
+      '</button>' +
+
+      '<button class="nbHero-nav nbHero-next" aria-label="Nächster Titel">' +
+      '<span class="material-icons">chevron_right</span>' +
+      '</button>' +
+
+      '<div class="nbHero-dots">' +
+      items.map(function (_, n) {
+        return '<button class="nbHero-dot' +
+          (n === 0 ? ' is-active' : '') +
+          '" data-i="' +
+          n +
+          '" aria-label="Zu Folie ' +
+          (n + 1) +
+          ' wechseln"><i></i></button>';
+      }).join('') +
+      '</div>';
+}
 
     var actual = 0, timer = null, slides = el.querySelectorAll('.nbHero-slide'), dots = el.querySelectorAll('.nbHero-dot');
     function ir(n) {
