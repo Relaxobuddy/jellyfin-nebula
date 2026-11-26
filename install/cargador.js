@@ -4,6 +4,6 @@
   if (document.getElementById('nebulaHeroJs')) return;
   var s = document.createElement('script');
   s.id = 'nebulaHeroJs'; s.defer = true;
-  s.src = 'https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/nebula-home.js';
+  s.src = 'https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/nebula-home.js';
   document.head.appendChild(s);
 })();
