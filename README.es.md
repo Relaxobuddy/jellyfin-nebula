@@ -58,7 +58,7 @@ Efecto cristal · degradado violeta → cian · animaciones suaves · carrusel d
 **3.** En el cuadro **«Código CSS personalizado»**, pega esta línea:
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/nebula.css');
+@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/nebula.css');
 ```
 
 **4.** Pulsa **Guardar** abajo del todo.
@@ -82,7 +82,7 @@ Cambia el violeta → cian por otro color. Pon **solo una** de estas líneas:
 ![Colores de acento](screenshots/opcion-acentos.png)
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/acento-coral.css');
+@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/acento-coral.css');
 ```
 
 Cambia `acento-coral` por el que quieras: `acento-coral` · `acento-esmeralda` · `acento-oceano` · `acento-rosa` · `acento-oro` · `acento-blanco`.
@@ -109,10 +109,10 @@ Jellyfin 12 pone las bibliotecas arriba. Si prefieres una barra más limpia:
 
 | Quiero… | Pega esta línea |
 |---|---|
-| Barra **mínima** (solo logo, búsqueda y usuario) | `@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/cabecera-minima.css');` |
-| Quitar solo las **bibliotecas** | `@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/ocultar-bibliotecas-cabecera.css');` |
-| Quitar solo **Favoritos** | `@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/ocultar-favoritos-cabecera.css');` |
-| Quitar solo el menú **«Más»** | `@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/ocultar-menu-mas.css');` |
+| Barra **mínima** (solo logo, búsqueda y usuario) | `@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/cabecera-minima.css');` |
+| Quitar solo las **bibliotecas** | `@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/ocultar-bibliotecas-cabecera.css');` |
+| Quitar solo **Favoritos** | `@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/ocultar-favoritos-cabecera.css');` |
+| Quitar solo el menú **«Más»** | `@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/ocultar-menu-mas.css');` |
 
 > No pierdes nada: las bibliotecas siguen en «Mis contenidos» de la portada y en el menú ☰.
 
@@ -123,7 +123,7 @@ Por defecto la ficha muestra el **logo** de la película. Si prefieres el nombre
 ![Logo o título en texto](screenshots/opcion-titulo.jpg)
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/titulo-en-texto.css');
+@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/titulo-en-texto.css');
 ```
 
 ### 🃏 Texto de las tarjetas centrado
@@ -133,7 +133,7 @@ Nebula alinea el título y el año a la izquierda. Para centrarlos como en Jelly
 ![Texto de tarjetas](screenshots/opcion-tarjetas.jpg)
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/tarjetas-texto-centrado.css');
+@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/tarjetas-texto-centrado.css');
 ```
 
 ### 🐢 Sin animaciones
@@ -141,7 +141,7 @@ Nebula alinea el título y el año a la izquierda. Para centrarlos como en Jelly
 Para equipos lentos, televisores o si simplemente no te gustan los efectos. Todo aparece al instante:
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/sin-animaciones.css');
+@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/sin-animaciones.css');
 ```
 
 ### 📋 Ejemplo completo
@@ -149,9 +149,9 @@ Para equipos lentos, televisores o si simplemente no te gustan los efectos. Todo
 Así quedaría el cuadro con el tema + color coral + barra mínima:
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/nebula.css');
-@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/acento-coral.css');
-@import url('https://cdn.jsdelivr.net/gh/nemesbak/jellyfin-nebula@main/opciones/cabecera-minima.css');
+@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/nebula.css');
+@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/acento-coral.css');
+@import url('https://cdn.jsdelivr.net/gh/Relaxobuddy/jellyfin-nebula@main/opciones/cabecera-minima.css');
 ```
 
 > ⚠️ Las líneas `@import` tienen que ir **al principio** del cuadro, antes de cualquier otro CSS que tengas.
@@ -236,7 +236,7 @@ El carrusel es la **imagen grande de la portada** que va pasando sola: títulos 
 Abre la **terminal del equipo donde está Jellyfin o Emby**, pega esto y pulsa Enter:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/nemesbak/jellyfin-nebula/main/install/nebula.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Relaxobuddy/jellyfin-nebula/main/install/nebula.sh | bash
 ```
 
 Recarga Jellyfin/Emby con **Ctrl + F5**. ¡Ya está! 🎉
@@ -405,7 +405,7 @@ Se ajusta desde el **mismo cuadro de «Código CSS personalizado»**, debajo de 
 Pega en la misma terminal donde lo instalaste:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/nemesbak/jellyfin-nebula/main/install/nebula.sh | bash -s -- --uninstall
+curl -fsSL https://raw.githubusercontent.com/Relaxobuddy/jellyfin-nebula/main/install/nebula.sh | bash -s -- --uninstall
 ```
 
 Quita el carrusel de todos tus Jellyfin/Emby y el contenedor o la tarea que lo vigilaba. El tema (CSS) no se toca. Si lo instalaste con **Compose**, borra además el servicio `nebula` de tu archivo. Si usaste el plugin, borra allí el script.
